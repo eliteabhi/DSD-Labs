@@ -1,0 +1,7 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/School/3rdYear/Semester-I/DSD/Labs/Lab 2/Lab 2.srcs/sources_1/new/nf.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mux2
+INFO: [VRFC 10-311] analyzing module Mux4
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/School/3rdYear/Semester-I/DSD/Labs/Lab 2/Lab 2.srcs/sim_1/new/Mu4_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mux4_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/School/3rdYear/Semester-I/DSD/Labs/Lab 2/Lab 2.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
