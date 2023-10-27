@@ -7,13 +7,11 @@ module NonSeqCounter_4bit(
     output [7:0] SEG,
     output [7:0] AN
     );
+    
     reg [3:0] Count = 4'b1001;
     reg [3:0] State = 3'b0000;
     reg [3:0] NextState = 3'b0000;
-    
-    
-    parameter width1 = 100000000;
-    parameter width2=10000;
+ 
     reg [7:0] Sarray [0:7]; //64 bit 2D array holding desired values for all digits
     wire [63:0] Pass_Array; // 64 bit 1D array used to pass the 2D array to submodule
     wire [7:0] Seg_val0; // holding 8 bit cathode values to pass to submodule
@@ -64,15 +62,15 @@ module NonSeqCounter_4bit(
             Sarray[6] <= 8'hFF;
             Sarray[7] <= 8'hFF;
         end
-        else if(State == 9) begin
-            Sarray[0] <= ~(8'b01111001); // xE
-            Sarray[1] <= ~(8'b01111100); // xB
-            Sarray[2] <= ~(8'b01100110); // x4
-            Sarray[3] <= ~(8'b01011110); // xD
-            Sarray[4] <= ~(8'b01110111); // xA
-            Sarray[5] <= ~(8'b01110001); // xF
-            Sarray[6] <= ~(8'b00000111); // x7
-            Sarray[7] <= ~(8'b01100111); // x9
+        else if(State == 9) begin // Display digits on 7-seg display
+            Sarray[0] <= ~(8'b01001111); // x3 4'h3
+            Sarray[1] <= ~(8'b00111001); // xC
+            Sarray[2] <= ~(8'b00111111); // x0
+            Sarray[3] <= ~(8'b00000110); // x1
+            Sarray[4] <= ~(8'b01111001); // x9
+            Sarray[5] <= ~(8'b01111111); // x8
+            Sarray[6] <= ~(8'b01011011); // x2
+            Sarray[7] <= ~(8'b01100111); // xE
         end
     end
     
@@ -95,30 +93,30 @@ module NonSeqCounter_4bit(
             end
             4'b0001: begin
                 NextState <= 2;
-                Count <= 4'b1001;
+                Count <= 4'b0011; // 0x3
             end
             4'b0010: begin
-                Count <= 4'b0111;
+                Count <= 4'b1100; // 0xC
                 NextState <= 3;
             end
             4'b0011: begin
-                Count <= 4'b1111;
+                Count <= 4'b0000; // 0x0
                 NextState <= 4;
             end
             4'b0100: begin
-                Count <= 4'b1010; //0xA
+                Count <= 4'b0001; //0x1
                 NextState <= 5;
             end
             4'b0101: begin
-                Count <= 4'b1101; // 0xD
+                Count <= 4'b1001; // 0x9
                 NextState <= 6;
             end
             4'b0110: begin
-                Count <= 4'b0100; // 0x4
+                Count <= 4'b1000; // 0x8
                 NextState <= 7;
             end
             4'b0111: begin
-                Count <= 4'b1011; // 0xB
+                Count <= 4'b0010; // 0x2
                 NextState <= 8;
             end
             4'b1000: begin
