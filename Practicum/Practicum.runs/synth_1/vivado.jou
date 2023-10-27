@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Fri Oct 27 00:56:09 2023
+# Process ID: 63124
+# Current directory: E:/School/3rdYear/Semester-I/DSD/Labs/Practicum/Practicum.runs/synth_1
+# Command line: vivado.exe -log NonSeqCounter_4bit.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source NonSeqCounter_4bit.tcl
+# Log file: E:/School/3rdYear/Semester-I/DSD/Labs/Practicum/Practicum.runs/synth_1/NonSeqCounter_4bit.vds
+# Journal file: E:/School/3rdYear/Semester-I/DSD/Labs/Practicum/Practicum.runs/synth_1\vivado.jou
+# Running On: Abhi-Windows-PC, OS: Windows, CPU Frequency: 3593 MHz, CPU Physical cores: 12, Host memory: 34272 MB
+#-----------------------------------------------------------
+source NonSeqCounter_4bit.tcl -notrace
