@@ -27,13 +27,13 @@ module NonSeqCounter_4bit(
     //Clk_Slow not used in this project
     SetSegments D0({3'b000, Count[0]}, Seg_val0); //the 1'b0 turns off decimal pt
 //    assign Sarray [0] = Seg_val0; //Have to use Seg_valx because can't pass 2D array
-    SetSegments D1({3'b000, Count[1]},Seg_val1);
+    SetSegments D1({3'b000, Count[1]}, Seg_val1);
 //    assign Sarray [1] = Seg_val1;
     SetSegments D2({3'b000, Count[2]}, Seg_val2); //the 1'b0 turns off decimal pt
 //    assign Sarray [2] = Seg_val2; //Have to use Seg_valx because can't pass 2D array
     SetSegments D3({3'b000, Count[3]},Seg_val3);
 //    assign Sarray [3] = Seg_val3;
-    SetSegments D4(Count[3:0],Seg_val4);
+    SetSegments D4(Count[3:0], Seg_val4);
 //    assign Sarray [4] = Seg_val4;
     //finish up by doing the 2 for the digits #4 and #5 and make sure you complement the digits
     //Now we turn off the indicators we are not using by putting FF in the 2D array for each indicator.
@@ -63,14 +63,14 @@ module NonSeqCounter_4bit(
             Sarray[7] <= 8'hFF;
         end
         else if(State == 9) begin // Display digits on 7-seg display
-            Sarray[0] <= ~(8'b01001111); // x3 4'h3
-            Sarray[1] <= ~(8'b00111001); // xC
-            Sarray[2] <= ~(8'b00111111); // x0
-            Sarray[3] <= ~(8'b00000110); // x1
-            Sarray[4] <= ~(8'b01111001); // x9
-            Sarray[5] <= ~(8'b01111111); // x8
-            Sarray[6] <= ~(8'b01011011); // x2
-            Sarray[7] <= ~(8'b01100111); // xE
+            Sarray[7] <= ~(8'b01001111); // x3 8'b01001111
+            Sarray[6] <= ~(8'b00111001); // xC
+            Sarray[5] <= ~(8'b00111111); // x0
+            Sarray[4] <= ~(8'b00000110); // x1 8'b01111001
+            Sarray[3] <= ~(8'b01100111); // x9 8'b01100111
+            Sarray[2] <= ~(8'b01111111); // x8
+            Sarray[1] <= ~(8'b01011011); // x2
+            Sarray[0] <= ~(8'b01111001); // xE
         end
     end
     
